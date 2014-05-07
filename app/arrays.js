@@ -34,17 +34,6 @@ define(function() {
         }
       });
       return new_arr;
-      
-      /*
-      var indx = arr.indexOf(item) >= 0 ? arr.indexOf(item) : false;
-
-      if (indx) {
-        console.log(arr.splice(indx, 1));
-        return arr.splice(indx, 1);
-      } else {
-        return false;
-      }
-      */
     },
 
     append : function(arr, item) {
@@ -63,7 +52,9 @@ define(function() {
     },
 
     curtail : function(arr) {
-
+      arr = arr.slice(1);
+      return arr;
+      // console.log(arr);
     },
 
     concat : function(arr1, arr2) {
@@ -71,19 +62,39 @@ define(function() {
     },
 
     insert : function(arr, item, index) {
-
+      arr.splice(index, 0, item);
+      return arr;
     },
 
     count : function(arr, item) {
-
+      var count = 0;
+      for (var i = 0; i < arr.length; i++) {
+        if (item === arr[i]) {
+          count +=1;
+        }
+      }
+      return count;
     },
 
     duplicates : function(arr) {
+      dups = [];
+      for (var i = 0; i < arr.length; i++) {
 
+      }
     },
 
     square : function(arr) {
-
+      /*
+      var square = [];
+      for (var i = 0; i < arr.length; i++) {
+        square.push(Math.pow(arr[i], 2));
+      }
+      return square;
+      */
+      function square(x) {
+        return Math.pow(x, 2);
+      }
+      return arr.map(square);
     },
 
     findAllOccurrences : function(arr, target) {
